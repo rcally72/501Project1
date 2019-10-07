@@ -5,7 +5,11 @@ Created on Wed Oct  2 13:06:05 2019
 
 @author: ryanpatrickcallahan
 """
-# This script obtains monthly averages for temperature data from 1000s of US locations between 
+# This script obtains monthly averages for temperature data from 1000s of US locations between 1961 and 2019.
+# Issue with this code is the provider updates the date on the name of the whole directory that contains the temperature data every day,
+# and I don't know on which day you will be running the code. Additionally, we cannot even upload that dataset to github because the zipped version is over 25 MB.
+# FYI: we had serious issues paring this dataset down sufficiently so that Python would
+# clean it. I've submitted a very pared down final dataset but will continue to try to get python to process the full thing.
 
 
 def main():
@@ -48,12 +52,12 @@ def main():
     # Only retain temperature data from western hemisphere countries
     datum2 = datum2.loc[datum2['country'] == 'US']
     # Select only certain years to reduce dataset to size that Python can parse and clean without stalling
-    years = ['1961','1968','1975','1982','1989','1996','2003','2010','2017','2019']
+    years = ['1961','1991','2019']
     datum2 = datum2.loc[datum2['year'].isin(years)]
     # Reduce dataset from 12 to 4 months to allow Python to handle processing
-    datum2 = datum2[['jan','apr','jul','oct','id','lat','long','name','year','country']]
+    datum2 = datum2[['jan','id','lat','long','name','year','country']]
     # Make list of month column names for purposes of iteration
-    months = ['jan','apr','jul','oct']
+    months = ['jan']
     # Define variable that will store indices of rows with bad data for removal
     kills = []
     # Define counter of cells with data that was invalid and could not be approximated
@@ -102,6 +106,7 @@ def numberize(datum, months):
                 if datum.loc[i,month].lstrip('-').isdigit():
                     # If string is in fact a numeral, convert to type int
                     datum.loc[i,month] = int(datum.loc[i,month])
+                    print(i)
 
 
 
@@ -141,11 +146,11 @@ def firstlast(datum, months, kills, killcount, approx):
                     counter += 0
 
         # Add number of invalid cells and approximated cells to counters
-        killcount.append(4-counter)
+        killcount.append(1-counter)
         approx.append(app_app)
         
         # If not all 12 rows were able to be properly converted into numbers, add that row's index to the list of those designated for removal        
-        if counter != 4:
+        if counter != 1:
             kills.append(i)
 
 
