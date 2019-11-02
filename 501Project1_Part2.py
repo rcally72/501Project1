@@ -139,7 +139,7 @@ dfnew = pd.merge(dfnew, c, how='left', on=['Name', 'Year'])
 # Add the data to the master dataset by state by year 
 vehreg = pd.read_csv('Vehicle_Registration_By_State_By_Year.csv')
 vehreg = vehreg.drop(columns=['Unnamed: 0', 'index'])
-vehreg = vehreg.rename(columns = {'State': 'Name'})
+vehreg = vehreg.rename(columns = {'State': 'Name', 'Motorcicles': 'Motorcycles'})
 vehreg.Name = vehreg.Name.str.replace(r'[\(\)\d]+', '')
 vehreg.Name = vehreg.Name.str.replace('/','')
 vehreg = vehreg.replace('Dist. of Col.', 'District of Columbia')
@@ -177,19 +177,19 @@ for col in colev:
 
 # Import the data on airport location
 # Add number of airports by type by state to the master dataset
-airloc = pd.read_csv('AirportLocation.csv')
+airloc = pd.read_csv('AirportLocation.csv') #11696
 airloc['Location'] = airloc['Location'].str.lower()
 airloc['Location'] = airloc['Location'].str.title()
 airloc = airloc.replace('District Of Columbia', 'District of Columbia')
 airloc = airloc[airloc['type'] != 'closed']
 airloc = airloc.rename(columns={'Location': 'Name'})
 
-a1 = airloc[airloc['type'] != 'balloonport']
-a2 = airloc[airloc['type'] != 'heliport']
-a3 = airloc[airloc['type'] != 'large_airport']
-a4 = airloc[airloc['type'] != 'medium_airport']
-a5 = airloc[airloc['type'] != 'seaplane_base']
-a6 = airloc[airloc['type'] != 'small_airport']
+a1 = airloc[airloc['type'] == 'balloonport']
+a2 = airloc[airloc['type'] == 'heliport']
+a3 = airloc[airloc['type'] == 'large_airport']
+a4 = airloc[airloc['type'] == 'medium_airport']
+a5 = airloc[airloc['type'] == 'seaplane_base']
+a6 = airloc[airloc['type'] == 'small_airport']
 
 a11 = a1.groupby(['Name'], as_index = False).size().to_frame('Balloonport')
 dfnew = pd.merge(dfnew, a11, how='left', on=['Name'])
@@ -228,7 +228,7 @@ RM = ['Colorado', 'Idaho', 'Montana', 'Nevada', 'New Mexico']
 
 GP = ['Montana', 'North Dakota', 'South Dakota', 'Nebraska', 'Oklahoma']
 
-PN = ['Montana', 'California', 'Wyoming']
+PN = ['Montana', 'California', 'Wyoming', 'Oregon', 'Washington']
 
 # Set up columns corresponding to each of the region
 reg = ['NE','SE','PS','NC','SC','RM','GP','PN']
@@ -453,7 +453,7 @@ dfnew = pd.merge(dfnew, summary, how='left', on=['Name', 'Year'])
 ######Chris's Code
 
 # Import Forest Data
-Forest_Data = pd.read_csv('501Project1/Forest_Data.csv') 
+Forest_Data = pd.read_csv('Forest_Data.csv') 
 
 # Drop region values
 Forest_Data = Forest_Data.rename(columns={'Region': 'Name'})
