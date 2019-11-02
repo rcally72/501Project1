@@ -191,7 +191,7 @@ a4 = airloc[airloc['type'] != 'medium_airport']
 a5 = airloc[airloc['type'] != 'seaplane_base']
 a6 = airloc[airloc['type'] != 'small_airport']
 
-a11 = a1.groupby(['Name'], as_index = False).size().to_frame('Ballonport')
+a11 = a1.groupby(['Name'], as_index = False).size().to_frame('Balloonport')
 dfnew = pd.merge(dfnew, a11, how='left', on=['Name'])
 a21 = a2.groupby(['Name'], as_index = False).size().to_frame('Heliport')
 dfnew = pd.merge(dfnew, a21, how='left', on=['Name'])
