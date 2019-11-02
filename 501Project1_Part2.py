@@ -481,13 +481,13 @@ for i in range(len(Forest_Data.Name)):
     
 # drop years we aren't using
 Forest_Data = Forest_Data.drop(['1997b','1987b','1977b','1963b','1953b','1938b','1920b','1907b','1630c'], axis=1)
-dfnew["Forest Acerage(Thousands)"] =  np.nan
+dfnew["Forest Acreage(Thousands)"] =  np.nan
 
 for i in range(len(dfnew)): # loop through all rows of big dataframe
     for j in range(len(Forest_Data)): # loop through all rows of forest_data
         for k in range(3): # loop through columns of Forest_data
             p = k+1 
             if (str(dfnew.Year[i]) == Forest_Data.columns[p] and dfnew.Name[i] == Forest_Data.iloc[j,0]):
-                dfnew["Forest Acerage(Thousands)"][i] = Forest_Data.iloc[j,p]
+                dfnew["Forest Acreage(Thousands)"][i] = Forest_Data.iloc[j,p]
 
 ######## End Chris's Code
