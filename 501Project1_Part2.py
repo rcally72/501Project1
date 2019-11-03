@@ -25,7 +25,7 @@ colpop = popstate.columns
 new = pd.DataFrame(columns=['Name', 'Population', 'Year'])
 for col in colpop[1:len(colpop)]:
     df = popstate[['name',col]]
-    df = df.groupby('name',as_index=False).sum()
+    df = df.groupby('name',as_index=False).max()
     df = df.rename(columns={col: 'Population', 'name':'Name'})
     df['Year'] = int(col[len(col)-4:len(col)])
     new = pd.concat([new,df],ignore_index=True)
@@ -489,5 +489,9 @@ for i in range(len(dfnew)): # loop through all rows of big dataframe
             p = k+1 
             if (str(dfnew.Year[i]) == Forest_Data.columns[p] and dfnew.Name[i] == Forest_Data.iloc[j,0]):
                 dfnew["Forest Acreage(Thousands)"][i] = Forest_Data.iloc[j,p]
-
+                
+for i in range(0,len(dfnew)):
+    if type(dfnew['Forest Acreage(Thousands)'][i]) == str:
+        dfnew['Forest Acreage(Thousands)'][i] = dfnew['Forest Acreage(Thousands)'][i].replace(',','')
+        dfnew['Forest Acreage(Thousands)'][i] = int(dfnew['Forest Acreage(Thousands)'][i])
 ######## End Chris's Code
