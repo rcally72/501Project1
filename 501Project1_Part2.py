@@ -490,7 +490,9 @@ for i in range(len(dfnew)): # loop through all rows of big dataframe
             if (str(dfnew.Year[i]) == Forest_Data.columns[p] and dfnew.Name[i] == Forest_Data.iloc[j,0]):
                 dfnew["Forest Acreage(Thousands)"][i] = Forest_Data.iloc[j,p]
                 
+# Convert ints and floats improperly saved as strings to numeric variables                
 for i in range(0,len(dfnew)):
+    dfnew['Percent increase in urban land 2000-2010'][i] = float(dfnew['Percent increase in urban land 2000-2010'][i])
     if type(dfnew['Forest Acreage(Thousands)'][i]) == str:
         dfnew['Forest Acreage(Thousands)'][i] = dfnew['Forest Acreage(Thousands)'][i].replace(',','')
         dfnew['Forest Acreage(Thousands)'][i] = int(dfnew['Forest Acreage(Thousands)'][i])
