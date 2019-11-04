@@ -46,24 +46,24 @@ from matplotlib import cm
 
 def Main():
     dfnew = MasterDataSet() #create master dataset 
-    #StatAnalysis(dfnew) # statistical analysis part 1
-    #CorrStat(dfnew) # statistical analysis part 2
-    #Clustering(dfnew) # clustering analysis
+    StatAnalysis(dfnew) # statistical analysis part 1
+    CorrStat(dfnew) # statistical analysis part 2
+    Clustering(dfnew) # clustering analysis
     association_prep(dfnew) # Preprocess data for association rules
     encoding(dfnew) # Encode variables in preparation for association rules
     associationRULES(dfnew) # Conduct association rules mining
-    #Hypo1(dfnew) # Run hypothesis testing 1
-    #dfnew = PopB(dfnew) #creating new variable PopBin
-    #Hypo2LR(dfnew) # Run hypothesis testing 2
+    Hypo1(dfnew) # Run hypothesis testing 1
+    dfnew = PopB(dfnew) #creating new variable PopBin
+    Hypo2LR(dfnew) # Run hypothesis testing 2
     Hypo2RF(dfnew) # Run hypothesis testing 2 using Random Forest
-    #Hypo3(dfnew) # Run hypothesis testing 3
-    #Hypo4(dfnew)
-    #Hypo5(Hypo5Data(dfnew),'MaxT') # Run hypothesis testing 5
-    #Hypo5(Hypo5Data(dfnew),'MinT') # Run hypothesis testing 5
+    Hypo3(dfnew) # Run hypothesis testing 3
+    Hypo4(dfnew)
+    Hypo5(Hypo5Data(dfnew),'MaxT') # Run hypothesis testing 5
+    Hypo5(Hypo5Data(dfnew),'MinT') # Run hypothesis testing 5
     
-    H#ypo5(Hypo5Data(dfnew),'MaxT') # Run hypothesis testing 6
-    #Hypo5(Hypo5Data(dfnew),'MinT') # Run hypothesis testing 6
-    #Graphs(dfnew)
+    Hypo5(Hypo5Data(dfnew),'MaxT') # Run hypothesis testing 6
+    Hypo5(Hypo5Data(dfnew),'MinT') # Run hypothesis testing 6
+    Graphs(dfnew)
     
 
 ######### DATA PREPROCESSING ######################
