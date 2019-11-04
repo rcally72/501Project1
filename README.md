@@ -1,6 +1,6 @@
 # 501Project1
 Datasets and code for project 1
-# Masha Gubenko Ruchi Kanar, Ryan Callahan, and Christopher Fiaschetti
+Masha Gubenko Ruchi Kanar, Ryan Callahan, and Christopher Fiaschetti
 # README
 
 AirportLocation.csv - dataset containing airport locations in the United States
