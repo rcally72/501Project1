@@ -48,4 +48,4 @@ Temps2.csv - higher-density 2000-2018 temperature dataset
 
 Urban_Land(2000-2010).csv- Includes percent increase in urban land for regions in the US over multiple years.
 
-Vehicle_Registration_By_State_By_Year.csv - counts of numbers of motorcycles, automobiles (POVs), trucks, and buses registered in each state each year
+Vehicle_Registration_By_State_By_Year.csv -counts of numbers of motorcycles, automobiles (POVs), trucks, and buses registered in each state each year
