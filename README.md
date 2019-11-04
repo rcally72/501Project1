@@ -1,12 +1,9 @@
-# 501Project1
-Datasets and code for project 2
-
-501Project1
+#501Project2
 Datasets and code for project 2
 
 Masha Gubenko Ruchi Kanar, Ryan Callahan, and Christopher Fiaschetti
 
-README
+#README
 Please install “conda install -c plotly plotly-orca” in the console prior to running our code.
 
 Please install “pip install plotly” in the console prior to running our code.
