@@ -1379,7 +1379,7 @@ def associationRULES(dfnew):
     from collections import OrderedDict
     
     # Choose columns that will be included in association rules mining
-    assoc = dfnew[['Name','Year','AeroBins','PopChangeBins','AutoBins','PopBins','TBins','TruckBins','BusBins','UrbanBins']]
+    assoc = dfnew[['AeroBins','PopChangeBins','AutoBins','PopBins','TBins','TruckBins','BusBins','UrbanBins']]
     # Remove rows with null values
     assoc = assoc.loc[(assoc != -1).all(axis=1)]
 
