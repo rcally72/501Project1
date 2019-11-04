@@ -1241,7 +1241,8 @@ def association_prep(dfnew):
     import statistics 
     import math 
     #pip install mlxtend
-    #from mlxtend.frequent_patterns import association_rules, apriori                            
+    #from mlxtend.frequent_patterns import association_rules, apriori
+    pip install apyori
     from apyori import apriori
 
 
